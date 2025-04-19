@@ -1,0 +1,6 @@
+@mottu_mapping_api_dotnet_HostAddress = http://localhost:5184
+
+GET {{mottu_mapping_api_dotnet_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
