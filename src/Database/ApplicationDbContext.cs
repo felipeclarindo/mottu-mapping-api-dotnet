@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Src.Models;
 
+namespace Src.Database;
+
 public class ApplicationDbContext : DbContext
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
@@ -15,19 +17,15 @@ public class ApplicationDbContext : DbContext
         base.OnModelCreating(modelBuilder);
 
         modelBuilder.Entity<Moto>()
-        .HasOne(m => m.Sector)
-        .WithMany(s => s.Motos)
-        .HasForeignKey(m => m.SectorId);
-
+            .HasOne<Sector>()
+            .WithMany()
+            .HasForeignKey(m => m.SectorId)
+            .OnDelete(DeleteBehavior.Cascade);
 
         modelBuilder.Entity<Sector>()
-            .HasOne(s => s.Patio)
-            .WithMany(p => p.Sectors)
-            .HasForeignKey(s => s.PatioId);
-
-        modelBuilder.Entity<Patio>()
-            .HasMany(p => p.Sectors)
-            .WithOne(s => s.Patio)
-            .HasForeignKey(s => s.PatioId);
+            .HasOne<Patio>()
+            .WithMany()
+            .HasForeignKey(s => s.PatioId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }
