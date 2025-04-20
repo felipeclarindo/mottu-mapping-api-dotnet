@@ -1,10 +1,10 @@
-namespace Src.Controllers;
-
 using Microsoft.AspNetCore.Mvc;
 using Src.Models;
 
+namespace Src.Controllers;
+
 [ApiController]
-[Route("api/[controller]")]
+[Route("api")]
 public class ApiController : ControllerBase
 {
     [HttpGet]

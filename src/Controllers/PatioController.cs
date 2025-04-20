@@ -1,11 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Src.Models;
+using Src.Database;
 
 namespace Src.Controllers;
 
 [ApiController]
-[Route("api/patios/[controller]")]
+[Route("api/patios")]
 public class PatioController : ControllerBase
 {
     private readonly ApplicationDbContext _context;
@@ -16,43 +17,41 @@ public class PatioController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Patio>>> GetPatios()
+    public async Task<ActionResult<IEnumerable<Patio>>> GetAll()
     {
-        return Ok(await _context.Patios.Include(p => p.Sectors).ToListAsync());
+        return Ok(await _context.Patios.ToListAsync());
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<Patio>> GetPatio(long id)
+    public async Task<ActionResult<Patio>> GetById(long id)
     {
-        var patio = await _context.Patios.Include(p => p.Sectors).FirstOrDefaultAsync(p => p.Id == id);
+        var patio = await _context.Patios.FindAsync(id);
         if (patio == null) return NotFound();
         return Ok(patio);
     }
 
     [HttpPost]
-    public async Task<ActionResult<Patio>> CreatePatio(Patio patio)
+    public async Task<ActionResult<Patio>> Create(Patio patio)
     {
         _context.Patios.Add(patio);
         await _context.SaveChangesAsync();
-        return CreatedAtAction(nameof(GetPatio), new { id = patio.Id }, patio);
+        return CreatedAtAction(nameof(GetById), new { id = patio.Id }, patio);
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> UpdatePatio(long id, Patio patio)
+    public async Task<IActionResult> Update(long id, Patio patio)
     {
         if (id != patio.Id) return BadRequest();
-
         _context.Entry(patio).State = EntityState.Modified;
         await _context.SaveChangesAsync();
         return NoContent();
     }
 
     [HttpDelete("{id}")]
-    public async Task<IActionResult> DeletePatio(long id)
+    public async Task<IActionResult> Delete(long id)
     {
         var patio = await _context.Patios.FindAsync(id);
         if (patio == null) return NotFound();
-
         _context.Patios.Remove(patio);
         await _context.SaveChangesAsync();
         return NoContent();
