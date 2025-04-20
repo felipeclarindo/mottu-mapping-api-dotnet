@@ -4,13 +4,14 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Oracle.EntityFrameworkCore.Metadata;
+using Src.Database;
 
 #nullable disable
 
 namespace mottu_mapping_api.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250419204352_InitialCreate")]
+    [Migration("20250420021105_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -72,7 +73,7 @@ namespace mottu_mapping_api.Migrations
 
                     OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
-                    b.Property<string>("ColorIdentify")
+                    b.Property<string>("Color")
                         .IsRequired()
                         .HasColumnType("NVARCHAR2(2000)");
 
@@ -95,34 +96,20 @@ namespace mottu_mapping_api.Migrations
 
             modelBuilder.Entity("Src.Models.Moto", b =>
                 {
-                    b.HasOne("Src.Models.Sector", "Sector")
-                        .WithMany("Motos")
+                    b.HasOne("Src.Models.Sector", null)
+                        .WithMany()
                         .HasForeignKey("SectorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Sector");
                 });
 
             modelBuilder.Entity("Src.Models.Sector", b =>
                 {
-                    b.HasOne("Src.Models.Patio", "Patio")
-                        .WithMany("Sectors")
+                    b.HasOne("Src.Models.Patio", null)
+                        .WithMany()
                         .HasForeignKey("PatioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Patio");
-                });
-
-            modelBuilder.Entity("Src.Models.Patio", b =>
-                {
-                    b.Navigation("Sectors");
-                });
-
-            modelBuilder.Entity("Src.Models.Sector", b =>
-                {
-                    b.Navigation("Motos");
                 });
 #pragma warning restore 612, 618
         }

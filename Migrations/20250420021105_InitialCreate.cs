@@ -31,7 +31,7 @@ namespace mottu_mapping_api.Migrations
                     Id = table.Column<long>(type: "NUMBER(19)", nullable: false)
                         .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
                     Name = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
-                    ColorIdentify = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
+                    Color = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
                     MotoQuantity = table.Column<int>(type: "NUMBER(10)", nullable: false),
                     PatioId = table.Column<long>(type: "NUMBER(19)", nullable: false)
                 },
