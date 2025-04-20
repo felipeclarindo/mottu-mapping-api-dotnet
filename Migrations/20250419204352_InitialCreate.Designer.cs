@@ -10,7 +10,7 @@ using Oracle.EntityFrameworkCore.Metadata;
 namespace mottu_mapping_api.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250419012105_InitialCreate")]
+    [Migration("20250419204352_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

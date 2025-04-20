@@ -24,5 +24,10 @@ public class ApplicationDbContext : DbContext
             .HasOne(s => s.Patio)
             .WithMany(p => p.Sectors)
             .HasForeignKey(s => s.PatioId);
+
+        modelBuilder.Entity<Patio>()
+            .HasMany(p => p.Sectors)
+            .WithOne(s => s.Patio)
+            .HasForeignKey(s => s.PatioId);
     }
 }
