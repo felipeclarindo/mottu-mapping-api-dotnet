@@ -1,15 +1,36 @@
+using Microsoft.EntityFrameworkCore;
+using DotNetEnv;
+using Src.Database;
+
+Env.Load();
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+var connectionString = Environment.GetEnvironmentVariable("ORACLE_DB") ?? string.Empty;
+
+if (string.IsNullOrEmpty(connectionString))
+{
+    throw new InvalidOperationException("Connection string 'ORACLE_DB' not found.");
+}
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseOracle(connectionString));
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins",
+        builder => builder.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
+});
+
 builder.Services.AddOpenApi();
+builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -19,6 +40,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseAuthorization();
 app.MapControllers();
-app.UseHttpsRedirection();
+
+app.UseCors("AllowAllOrigins");
 
 await app.RunAsync();
