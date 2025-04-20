@@ -1,26 +1,37 @@
-🌍 [Read in English](README.md)
+🌍 [Leia em Português](README.pt-BR.md)
 
 # Mottu Mapping API
 
-API RESTful desenvolvida com ASP.NET Core e banco Oracle para gerenciar matos e realizar o mapeamento.
+API RESTful desenvolvida com ASP.NET Core e OracleDB + EF Core para gerenciar motos, pátios e setores.
 
 ## Rotas
 
-- `GET /motos/{id_setor}`
-- `GET /motos`
-- `GET /motos/search?nome=João`
-- `POST /motos`
-- `PUT /motos/{id}`
-- `DELETE /motos/{id}`
+(Motos)
 
-- `GET /setor/{id}`
-- `GET /setor`
-- `GET /setor/search?nome=amarelo`
-- `POST /setor`
-- `PUT /setor/{id}`
-- `DELETE /setor/{id}`
+- `GET api/motos` - Obter todas as motos.
+- `GET api/motos/{id}` - Obter moto por ID.
+- `GET api/motos/sectors/{sector_id}` - Obter motos por ID de setor.
+- `POST api/motos` - Criar uma nova moto.
+- `PUT api/motos/{id}` - Atualizar moto por ID.
+- `DELETE api/motos/{id}` - Deletar moto por ID.
 
-## Passos para executar
+(Setores)
+
+- `GET api/sectors` - Obter todos os setores.
+- `GET api/sectors/{id}` - Obter setor por ID.
+- `POST api/sectors` - Criar um novo setor.
+- `PUT api/sectors/{id}` - Atualizar setor por ID.
+- `DELETE api/sectors/{id}` - Deletar setor por ID.
+
+(Pátios)
+
+- `GET api/patios/{id}` - Obter pátio por ID.
+- `GET api/patios` - Obter todos os pátios.
+- `POST api/patios` - Criar um novo pátio.
+- `PUT api/patios/{id}` - Atualizar pátio por ID.
+- `DELETE api/patios/{id}` - Deletar pátio por ID.
+
+## Passos para rodar
 
 1. Clone o repositório:
 
@@ -28,23 +39,29 @@ API RESTful desenvolvida com ASP.NET Core e banco Oracle para gerenciar matos e 
 git clone https://github.com/felipeclarindo/mottu-mapping-api-dotnet.git
 ```
 
-2. Entre no diretorio:
+2. Entre no repositório:
 
 ```bash
 cd mottu-mapping-api-dotnet
 ```
 
-3. Execute as migrações:
+3. Crie e configure o arquivo .env usando o modelo em [.env.example](./.env.example)
+
+4. Execute as migrações:
 
 ```bash
 dotnet ef database update
 ```
 
-4. Inicie a API:
+5. Rode a API:
 
 ```bash
 dotnet run
 ```
+
+6. A API está disponível em:
+
+- http://localhost:5184/api
 
 ## Contribuição
 
