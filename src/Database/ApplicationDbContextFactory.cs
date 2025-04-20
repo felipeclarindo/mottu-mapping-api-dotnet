@@ -2,19 +2,20 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using DotNetEnv;
 
-namespace Src.Database;
-
-public class ApplicationDbContextFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
+namespace Src.Database
 {
-    public ApplicationDbContext CreateDbContext(string[] args)
+    public class ApplicationDbContextFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
     {
-        Env.Load();
+        public ApplicationDbContext CreateDbContext(string[] args)
+        {
+            Env.Load();
 
-        var connectionString = Environment.GetEnvironmentVariable("ORACLE_DB");
+            var connectionString = Environment.GetEnvironmentVariable("ORACLE_DB");
 
-        var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
-        optionsBuilder.UseOracle(connectionString);
+            var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
+            optionsBuilder.UseOracle(connectionString);
 
-        return new ApplicationDbContext(optionsBuilder.Options);
+            return new ApplicationDbContext(optionsBuilder.Options);
+        }
     }
 }

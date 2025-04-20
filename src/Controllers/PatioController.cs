@@ -3,57 +3,58 @@ using Microsoft.EntityFrameworkCore;
 using Src.Models;
 using Src.Database;
 
-namespace Src.Controllers;
-
-[ApiController]
-[Route("api/patios")]
-public class PatioController : ControllerBase
+namespace Src.Controllers
 {
-    private readonly ApplicationDbContext _context;
-
-    public PatioController(ApplicationDbContext context)
+    [ApiController]
+    [Route("api/patios")]
+    public class PatioController : ControllerBase
     {
-        _context = context;
-    }
+        private readonly ApplicationDbContext _context;
 
-    [HttpGet]
-    public async Task<ActionResult<IEnumerable<Patio>>> GetAll()
-    {
-        return Ok(await _context.Patios.ToListAsync());
-    }
+        public PatioController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
 
-    [HttpGet("{id}")]
-    public async Task<ActionResult<Patio>> GetById(long id)
-    {
-        var patio = await _context.Patios.FindAsync(id);
-        if (patio == null) return NotFound();
-        return Ok(patio);
-    }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Patio>>> GetAll()
+        {
+            return Ok(await _context.Patios.ToListAsync());
+        }
 
-    [HttpPost]
-    public async Task<ActionResult<Patio>> Create(Patio patio)
-    {
-        _context.Patios.Add(patio);
-        await _context.SaveChangesAsync();
-        return CreatedAtAction(nameof(GetById), new { id = patio.Id }, patio);
-    }
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Patio>> GetById(long id)
+        {
+            var patio = await _context.Patios.FindAsync(id);
+            if (patio == null) return NotFound();
+            return Ok(patio);
+        }
 
-    [HttpPut("{id}")]
-    public async Task<IActionResult> Update(long id, Patio patio)
-    {
-        if (id != patio.Id) return BadRequest();
-        _context.Entry(patio).State = EntityState.Modified;
-        await _context.SaveChangesAsync();
-        return NoContent();
-    }
+        [HttpPost]
+        public async Task<ActionResult<Patio>> Create(Patio patio)
+        {
+            _context.Patios.Add(patio);
+            await _context.SaveChangesAsync();
+            return CreatedAtAction(nameof(GetById), new { id = patio.Id }, patio);
+        }
 
-    [HttpDelete("{id}")]
-    public async Task<IActionResult> Delete(long id)
-    {
-        var patio = await _context.Patios.FindAsync(id);
-        if (patio == null) return NotFound();
-        _context.Patios.Remove(patio);
-        await _context.SaveChangesAsync();
-        return NoContent();
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(long id, Patio patio)
+        {
+            if (id != patio.Id) return BadRequest();
+            _context.Entry(patio).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(long id)
+        {
+            var patio = await _context.Patios.FindAsync(id);
+            if (patio == null) return NotFound();
+            _context.Patios.Remove(patio);
+            await _context.SaveChangesAsync();
+            return NoContent();
+        }
     }
 }
