@@ -2,36 +2,34 @@
 
 # Mottu Mapping API
 
-API RESTful developed as ASP.NET Core and Oracle bench to guide majors and perform mapping.
+API RESTfulf developed as ASP.NET Core and OracleDB + EF Core to manage the motos, patios and sectors.
 
 ## Routes
 
 (Motos)
 
 - `GET api/motos` - Get All Motos.
-- `GET api/motos/{id_setor} ` - Get Motos by Sector Id.
-- `GET api/motos/search?nome=João` - Get with PathParams
+- `GET api/motos/{id}` - Get Moto by Id.
+- `GET api/motos/sectors/{sector_id} ` - Get Motos by Sector Id.
 - `POST api/motos` - Create a New Moto.
 - `PUT api/motos/{id}` - Update Moto by Id.
 - `DELETE api/motos/{id}` - Delete Moto by Id.
 
-(Setor)
+(Sectors)
 
-- `GET api/setor/{id}` - Get All Sectors
-- `GET api/setor`
-- `GET api/setor/search?nome=amarelo`
-- `POST api/setor`
-- `PUT api/setor/{id}`
-- `DELETE api/setor/{id}`
+- `GET api/sectors` - Get All Sectors.
+- `GET api/sectors/{id}`- Get Sector by Id.
+- `POST api/sectors` - Create a New Sector.
+- `PUT api/sectors/{id}` - Update Sector by Id.
+- `DELETE api/sectors/{id}` - Delete Sector by Id.
 
-(Patio)
+(Patios)
 
-- `GET api/patio/{id}`
-- `GET api/patio`
-- `GET api/patio/search?nome=amarelo`
-- `POST api/patio`
-- `PUT api/patio/{id}`
-- `DELETE api/patio/{id}`
+- `GET api/patios/{id}` - Get Patio by id
+- `GET api/patios` - Get All Patios.
+- `POST api/patios` - Create a New patio
+- `PUT api/patios/{id}` - Update Patio by Id.
+- `DELETE api/patios/{id}` - Delete Patio by Id.
 
 ## Steps to run
 
@@ -55,33 +53,19 @@ cd mottu-mapping-api-dotnet
 dotnet ef database update
 ```
 
-5. Build the api:
-
-```bash
-dotnet build
-```
-
-6. Run the api:
+5. Run the api:
 
 ```bash
 dotnet run
 ```
 
-7. The api is avaible on:
+6. The api is avaible on:
 
-- http://localhost:5184
+- http://localhost:5184/api
 
 ## Contribution
 
 Contributions are welcome! If you have suggestions for improvements, feel free to open an issue or submit a pull request.
-
-## Author
-
-**Felipe Clarindo**
-
-- [LinkedIn](https://www.linkedin.com/in/felipeclarindo)
-- [Instagram](https://www.instagram.com/lipethecoder)
-- [GitHub](https://github.com/felipeclarindo)
 
 ## License
 
