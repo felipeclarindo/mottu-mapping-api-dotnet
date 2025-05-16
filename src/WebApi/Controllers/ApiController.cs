@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using Src.Models;
+using Src.Application.DTOs;
 
-namespace Src.Controllers
+namespace MotoMappingApiDotnet.Src.WebApi.Controllers
 {
     [ApiController]
     [Route("api")]

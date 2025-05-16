@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Src.Models;
 using Src.Database;
+using Src.Domain.Entities;
 
-namespace Src.Controllers
+namespace MotoMappingApiDotnet.Src.WebApi.Controllers
 {
     [ApiController]
     [Route("api/motos")]

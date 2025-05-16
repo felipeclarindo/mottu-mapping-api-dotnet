@@ -1,7 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using Src.Models;
+using Domain.Entities;
+using MotoMappingApiDotnet.Src.Domain.Entities;
 
-namespace Src.Database
+namespace MotoMappingApiDotnet.Src.Infra.Database
 {
     public class ApplicationDbContext : DbContext
     {

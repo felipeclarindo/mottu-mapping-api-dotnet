@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using DotNetEnv;
-using Src.Database;
+using MotoMappingApiDotnet.Src.Infra.Database;
 
 Env.Load();
 

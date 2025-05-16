@@ -1,8 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using DotNetEnv;
+using MotoMappingApiDotnet.Src.Infra.Database;
 
-namespace Src.Database
+namespace MotoMappingApiDotnet.Src.Infra.Database
 {
     public class ApplicationDbContextFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
     {

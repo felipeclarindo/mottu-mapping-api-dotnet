@@ -1,4 +1,4 @@
-namespace Src.Models
+namespace MotoMappingApiDotnet.Src.Application.DTOs
 {
     public class ApiDescriptionResponse()
     {

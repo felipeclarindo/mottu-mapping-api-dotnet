@@ -1,4 +1,4 @@
-namespace Src.Models
+namespace MotoMappingApiDotnet.Src.Domain.Entities
 {
     public class Patio
     {

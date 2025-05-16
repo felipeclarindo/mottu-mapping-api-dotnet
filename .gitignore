@@ -48,3 +48,6 @@ msbuild.wrn
 
 # Env
 .env
+
+# Ignorated files
+a.txt
