@@ -10,7 +10,7 @@ API RESTfulf developed as ASP.NET Core and OracleDB + EF Core to manage the moto
 
 - `GET api/motos` - Get All Motos.
 - `GET api/motos/{id}` - Get Moto by Id.
-- `GET api/motos/sectors/{sector_id} ` - Get Motos by Sector Id.
+- `GET api/motos/sectors/{sector_id}` - Get Motos by Sector Id.
 - `POST api/motos` - Create a New Moto.
 - `PUT api/motos/{id}` - Update Moto by Id.
 - `DELETE api/motos/{id}` - Delete Moto by Id.
@@ -47,21 +47,27 @@ cd mottu-mapping-api-dotnet
 
 3. Create and configure the `.env` file using the model in [.env.example](./.env.example)
 
-4. Run migrations:
+4. Enter in Api Directory:
+
+```bash
+cd ./Src.WebApi
+```
+
+5. Run migrations:
 
 ```bash
 dotnet ef database update
 ```
 
-5. Run the api:
+6. Run the api:
 
 ```bash
 dotnet run
 ```
 
-6. The api is avaible on:
+7. The api is avaible on:
 
-- http://localhost:5184/api
+- <http://localhost:5272/api>
 
 ## Contribution
 

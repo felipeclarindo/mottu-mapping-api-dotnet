@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using DotNetEnv;
-using MotoMappingApiDotnet.Src.Infra.Database;
+using MotoMappingApiDotnet.Src.Utils.Functions;
 
 namespace MotoMappingApiDotnet.Src.Infra.Database
 {
@@ -9,7 +9,8 @@ namespace MotoMappingApiDotnet.Src.Infra.Database
     {
         public ApplicationDbContext CreateDbContext(string[] args)
         {
-            Env.Load();
+            var helper = new HelperFunctions();
+            helper.LoadEnvFromRoot();
 
             var connectionString = Environment.GetEnvironmentVariable("ORACLE_DB");
 

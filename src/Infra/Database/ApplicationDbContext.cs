@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using MotoMappingApiDotnet.Src.Domain.Entities;
-using MotoMappingApiDotnet.Src.Domain.Entities;
 
 namespace MotoMappingApiDotnet.Src.Infra.Database
 {
