@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using Src.Application.DTOs;
+using MotoMappingApiDotnet.Src.Application.DTOs;
 
 namespace MotoMappingApiDotnet.Src.WebApi.Controllers
 {

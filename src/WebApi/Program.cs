@@ -1,8 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using DotNetEnv;
 using MotoMappingApiDotnet.Src.Infra.Database;
+using MotoMappingApiDotnet.Src.WebApi.Utils;
 
-Env.Load();
+var utils = new Utils();
+utils.LoadEnvFromRoot();
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,10 +20,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAllOrigins",
-        builder => builder.AllowAnyOrigin()
-            .AllowAnyMethod()
-            .AllowAnyHeader());
+    options.AddPolicy("AllowAllOrigins", policy =>
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader());
 });
 
 builder.Services.AddOpenApi();
@@ -38,9 +40,8 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
+app.UseCors("AllowAllOrigins");
 app.UseAuthorization();
 app.MapControllers();
-
-app.UseCors("AllowAllOrigins");
 
 await app.RunAsync();

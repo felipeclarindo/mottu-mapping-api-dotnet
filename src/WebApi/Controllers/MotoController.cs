@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Src.Database;
-using Src.Domain.Entities;
+using MotoMappingApiDotnet.Src.Infra.Database;
+using MotoMappingApiDotnet.Src.Domain.Entities;
 
 namespace MotoMappingApiDotnet.Src.WebApi.Controllers
 {
