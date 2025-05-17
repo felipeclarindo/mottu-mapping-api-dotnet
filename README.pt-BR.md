@@ -1,4 +1,4 @@
-🌍 [Leia em Português](README.pt-BR.md)
+🌍 [Read in English](README.md)
 
 # Mottu Mapping API
 
@@ -47,26 +47,31 @@ cd mottu-mapping-api-dotnet
 
 3. Crie e configure o arquivo .env usando o modelo em [.env.example](./.env.example)
 
-4. Execute as migrações:
+4. Enter no diretorio da API:
+
+```bash
+cd ./Src.WebApi
+```
+
+5. Execute as migrações:
 
 ```bash
 dotnet ef database update
 ```
 
-5. Rode a API:
+6. Rode a API:
 
 ```bash
 dotnet run
 ```
 
-6. A API está disponível em:
+7. A API está disponível em:
 
-- http://localhost:5184/api
+- <http://localhost:5272/api>
 
 ## Contribuição
 
 Contribuições são bem-vindas! Se você tiver sugestões de melhorias, sinta-se à vontade para abrir uma issue ou enviar um pull request.
-
 
 ## Licença
 
