@@ -50,7 +50,7 @@ cd mottu-mapping-api-dotnet
 4. Enter no diretorio da API:
 
 ```bash
-cd ./Src.WebApi
+cd ./Src/WebApi
 ```
 
 5. Execute as migrações:

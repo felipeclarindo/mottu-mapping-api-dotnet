@@ -3,28 +3,28 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using MotoMappingApiDotnet.Src.Infra.Database;
 using Oracle.EntityFrameworkCore.Metadata;
-using Src.Database;
 
 #nullable disable
 
-namespace mottu_mapping_api.Migrations
+namespace Infra.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250420021105_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20251001022949_SeedInitialData")]
+    partial class SeedInitialData
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.4")
+                .HasAnnotation("ProductVersion", "9.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             OracleModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Src.Models.Moto", b =>
+            modelBuilder.Entity("MotoMappingApiDotnet.Src.Domain.Entities.Moto", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -45,7 +45,7 @@ namespace mottu_mapping_api.Migrations
                     b.ToTable("Motos");
                 });
 
-            modelBuilder.Entity("Src.Models.Patio", b =>
+            modelBuilder.Entity("MotoMappingApiDotnet.Src.Domain.Entities.Patio", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -65,7 +65,7 @@ namespace mottu_mapping_api.Migrations
                     b.ToTable("Patios");
                 });
 
-            modelBuilder.Entity("Src.Models.Sector", b =>
+            modelBuilder.Entity("MotoMappingApiDotnet.Src.Domain.Entities.Sector", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -94,18 +94,18 @@ namespace mottu_mapping_api.Migrations
                     b.ToTable("Sectors");
                 });
 
-            modelBuilder.Entity("Src.Models.Moto", b =>
+            modelBuilder.Entity("MotoMappingApiDotnet.Src.Domain.Entities.Moto", b =>
                 {
-                    b.HasOne("Src.Models.Sector", null)
+                    b.HasOne("MotoMappingApiDotnet.Src.Domain.Entities.Sector", null)
                         .WithMany()
                         .HasForeignKey("SectorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Src.Models.Sector", b =>
+            modelBuilder.Entity("MotoMappingApiDotnet.Src.Domain.Entities.Sector", b =>
                 {
-                    b.HasOne("Src.Models.Patio", null)
+                    b.HasOne("MotoMappingApiDotnet.Src.Domain.Entities.Patio", null)
                         .WithMany()
                         .HasForeignKey("PatioId")
                         .OnDelete(DeleteBehavior.Cascade)
