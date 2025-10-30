@@ -3,8 +3,9 @@ using MotoMappingApiDotnet.Src.Application.DTOs;
 
 namespace MotoMappingApiDotnet.Src.WebApi.Controllers
 {
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}")]
     [ApiController]
-    [Route("api")]
     public class ApiController : ControllerBase
     {
         [HttpGet]

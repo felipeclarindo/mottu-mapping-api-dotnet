@@ -5,8 +5,9 @@ using MotoMappingApiDotnet.Src.Domain.Entities;
 
 namespace MotoMappingApiDotnet.Src.WebApi.Controllers
 {
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/motos")]
     [ApiController]
-    [Route("api/motos")]
     public class MotoController : ControllerBase
     {
         private readonly ApplicationDbContext _context;

@@ -8,28 +8,28 @@ API RESTfulf developed as ASP.NET Core and OracleDB + EF Core to manage the moto
 
 (Motos)
 
-- `GET api/motos` - Get All Motos.
-- `GET api/motos/{id}` - Get Moto by Id.
-- `GET api/motos/sectors/{sector_id}` - Get Motos by Sector Id.
-- `POST api/motos` - Create a New Moto.
-- `PUT api/motos/{id}` - Update Moto by Id.
-- `DELETE api/motos/{id}` - Delete Moto by Id.
+- `GET api/v1/motos` - Get All Motos.
+- `GET api/v1/motos/{id}` - Get Moto by Id.
+- `GET api/v1/motos/sectors/{sector_id}` - Get Motos by Sector Id.
+- `POST api/v1/motos` - Create a New Moto.
+- `PUT api/v1/motos/{id}` - Update Moto by Id.
+- `DELETE api/v1/motos/{id}` - Delete Moto by Id.
 
 (Sectors)
 
-- `GET api/sectors` - Get All Sectors.
-- `GET api/sectors/{id}`- Get Sector by Id.
-- `POST api/sectors` - Create a New Sector.
-- `PUT api/sectors/{id}` - Update Sector by Id.
-- `DELETE api/sectors/{id}` - Delete Sector by Id.
+- `GET api/v1/sectors` - Get All Sectors.
+- `GET api/v1/sectors/{id}`- Get Sector by Id.
+- `POST api/v1/sectors` - Create a New Sector.
+- `PUT api/v1/sectors/{id}` - Update Sector by Id.
+- `DELETE api/v1/sectors/{id}` - Delete Sector by Id.
 
 (Patios)
 
-- `GET api/patios/{id}` - Get Patio by id
-- `GET api/patios` - Get All Patios.
-- `POST api/patios` - Create a New patio
-- `PUT api/patios/{id}` - Update Patio by Id.
-- `DELETE api/patios/{id}` - Delete Patio by Id.
+- `GET api/v1/patios/{id}` - Get Patio by id
+- `GET api/v1/patios` - Get All Patios.
+- `POST api/v1/patios` - Create a New patio
+- `PUT api/v1/patios/{id}` - Update Patio by Id.
+- `DELETE api/v1/patios/{id}` - Delete Patio by Id.
 
 ## Steps to run
 
@@ -67,7 +67,7 @@ dotnet run
 
 7. The api is avaible on:
 
-- <http://localhost:5272/api>
+- <http://localhost:5272/api/v1>
 
 ## Contribution
 

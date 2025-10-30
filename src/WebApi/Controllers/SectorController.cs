@@ -5,8 +5,9 @@ using MotoMappingApiDotnet.Src.Domain.Entities;
 
 namespace MotoMappingApiDotnet.Src.WebApi.Controllers
 {
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/sectors")]
     [ApiController]
-    [Route("api/sectors")]
     public class SectorController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
