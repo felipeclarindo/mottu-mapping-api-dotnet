@@ -69,6 +69,12 @@ dotnet run
 
 - <http://localhost:5272/api>
 
+8. Para executar os testes, utilize o comando abaixo:
+
+```bash
+dotnet test
+```
+
 ## Contribuição
 
 Contribuições são bem-vindas! Se você tiver sugestões de melhorias, sinta-se à vontade para abrir uma issue ou enviar um pull request.
